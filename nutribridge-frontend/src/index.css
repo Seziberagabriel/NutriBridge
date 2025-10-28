@@ -1,0 +1,9 @@
+body.bg-dark {
+  background-color: #121212 !important;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  transition: 0.3s;
+}
+
