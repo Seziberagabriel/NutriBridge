@@ -1,21 +1,30 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import Dashboard from "./pages/Dashboard";
 
 function App() {
+  const [theme, setTheme] = useState("light");
+
+  useEffect(() => {
+    document.body.className = theme === "light" ? "bg-light text-dark" : "bg-dark text-light";
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme((prev) => (prev === "light" ? "dark" : "light"));
+  };
+
   return (
     <Router>
-      <div style={{ padding: "20px" }}>
-        <h1>NutriBridge Frontend Debug</h1>
-        <nav>
-          <Link to="/" style={{ marginRight: "10px" }}>Login</Link>
-          <Link to="/register" style={{ marginRight: "10px" }}>Register</Link>
-          <Link to="/dashboard">Dashboard</Link>
-        </nav>
-
+      <Navbar theme={theme} toggleTheme={toggleTheme} />
+      <div className="container py-4">
         <Routes>
-          <Route path="/" element={<h2>Login Page (Debug)</h2>} />
-          <Route path="/register" element={<h2>Register Page (Debug)</h2>} />
-          <Route path="/dashboard" element={<h2>Dashboard Page (Debug)</h2>} />
+          <Route path="/" element={<Login />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/dashboard" element={<Dashboard theme={theme} />} />
         </Routes>
       </div>
     </Router>
