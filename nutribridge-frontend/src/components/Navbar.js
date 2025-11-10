@@ -25,6 +25,12 @@ function Navbar({ theme, toggleTheme }) {
             <li className="nav-item">
               <Link className="nav-link" to="/dashboard">Dashboard</Link>
             </li>
+	    <li className="nav-item">
+              <Link className="nav-link" to="/resources">Resources</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/add-resource">Add Resource</Link>
+            </li>
             <li className="nav-item ms-3">
               <button className="btn btn-outline-light btn-sm" onClick={toggleTheme}>
                 {theme === "light" ? "Dark Mode" : "Light Mode"}
