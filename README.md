@@ -31,7 +31,7 @@
 - **Deployment**: Vercel
 - **Environment**: Cross-platform (Windows, macOS, Linux)
 
-5. **Open in browser**
+ **Open in browser**
  https://nutribridgee.vercel.app/
 ## Usage Guide
 
